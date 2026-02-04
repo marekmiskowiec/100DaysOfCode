@@ -10,6 +10,8 @@
   --clr-dark: #3d3d3d;
   --clr-light: #fff;
   --clr-main: red;
+
+  --clr-footer: #412727;
 }
 
 html {
@@ -86,4 +88,12 @@ section {
   padding: 48px 0;
   border-top: 0.1rem solid var(--clr-dark);
   border-bottom: 0.1rem solid var(--clr-dark);
+}
+
+/* Footer */
+.page-footer p {
+  color: var(--clr-light);
+  font-size: 2rem;
+  background-color: var(--clr-footer);
+  padding: 1rem 0;
 }
