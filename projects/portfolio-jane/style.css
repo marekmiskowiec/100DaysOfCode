@@ -76,3 +76,14 @@ section {
   transform: translateX(-50%);
   background: var(--clr-main);
 }
+
+/* Intro */
+.intro p {
+  width: 70%;
+  color: var(--clr-dark);
+  margin: 0 auto;
+  font-size: 2.4rem;
+  padding: 48px 0;
+  border-top: 0.1rem solid var(--clr-dark);
+  border-bottom: 0.1rem solid var(--clr-dark);
+}
