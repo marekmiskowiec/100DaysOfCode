@@ -20,7 +20,7 @@ html {
 
 body {
   text-align: center;
-  color: var(--clr-light);
+  color: var(--clr-dark);
   font-size: 1.6rem;
   line-height: 1.7;
 }
@@ -58,12 +58,14 @@ section {
 
 .page-title {
   font-size: 6rem;
+  color: var(--clr-light);
   margin: 4.8rem 0 0 0;
   position: relative;
 }
 
 .page-subtitle {
   font-size: 1.8rem;
+  color: var(--clr-light);
   margin: 4.8rem 0 0 0;
   font-weight: 400;
 }
@@ -90,10 +92,50 @@ section {
   border-bottom: 0.1rem solid var(--clr-dark);
 }
 
+/* Skills */
+.box {
+  display: flex;
+  min-height: 300px;
+}
+
+.box__first {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box__second {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box__first img,
+.box__second img {
+  width: 100%;
+  object-fit: cover;
+}
+
 /* Footer */
 .page-footer p {
   color: var(--clr-light);
   font-size: 2rem;
   background-color: var(--clr-footer);
   padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+  }
+
+  .box__first,
+  .box__second {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
 }
