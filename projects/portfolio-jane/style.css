@@ -36,6 +36,45 @@ section {
 }
 
 /* nav */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(8, 69, 89);
+  z-index: 1;
+}
+
+.navigation__title {
+  color: white;
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: flex-end;
+
+  & li {
+    padding-right: 20px;
+    font-size: 30px;
+    list-style-type: none;
+
+    & a {
+      color: white;
+      text-decoration: none;
+    }
+
+    & a:active {
+      color: red;
+    }
+  }
+}
+
+.icon {
+  display: none;
+}
 
 .splash {
   height: 100vh;
@@ -129,6 +168,20 @@ section {
 }
 
 @media (max-width: 768px) {
+  .icon {
+    display: block;
+    color: white;
+    font-size: 30px;
+  }
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navigation ul {
+    display: none;
+    flex-direction: column;
+  }
+
   .box {
     flex-direction: column;
   }
