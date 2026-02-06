@@ -15,10 +15,10 @@
   </head>
   <body>
     <nav class="navigation">
-      <a href="#" class="icon" onclick="displayMobileNav()">
-        test12321
-      </a>
-      <h2 class="navigation__title">Jane Doe</h2>
+      <div class="nav-title">
+        <h2 class="navigation__title"><a href="/">Jane Doe</a></h2>
+        <a href="#" class="icon" onclick="displayMobileNav()">X</a>
+      </div>
 
       <ul id="myLinks">
         <li><a href="#header">header</a></li>
@@ -27,8 +27,6 @@
         <li><a href="#projects">projects</a></li>
         <li><a href="#contact">contact</a></li>
       </ul>
-
-
     </nav>
     <header class="splash" id="header">
       <div class="splash-inner">
@@ -39,19 +37,15 @@
     </header>
     <section class="intro">
       <div class="container">
-        <p>
-          I turn tea and cookies into crisp and elegant code. <br />
-          I experiment and I make the world awesome. <br />
-          #100DaysOfCode challenge started on 04 Feb 2026.
-        </p>
+        <p>#100DaysOfCode challenge started on 04 Feb 2026.</p>
       </div>
     </section>
 
-    <section class="about" id="about">
+    <!-- <section class="about" id="about">
       <h2>About section in progress...</h2>
-    </section>
+    </section> -->
 
-    <section class="skills" id="skills">
+    <!-- <section class="skills" id="skills">
       <div class="container">
         <h2 class="section-title">What I do</h2>
         <div class="box">
@@ -77,28 +71,43 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="gallery" id="projects">
+    <!-- <section class="gallery" id="projects">
       <h2>Gallery in progress...</h2>
-    </section>
+    </section> -->
 
     <section class="contact" id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact me</h2>
-        <form action="#">
+      <h2 class="section-title">Contact me</h2>
+      <p>
+        We'd love to chat, please provide your contact details and we'll be in
+        touch as quickly as possible
+      </p>
+      <form>
+        <div class="form-group">
           <label for="name">Name</label>
-          <input type="text id="name" name="name" placeholder="Your name...">
+          <input type="text" id="name" placeholder="Your name..." required />
+        </div>
 
+        <div class="form-group">
           <label for="email">Email</label>
-          <input type="email id="email" name="email" placeholder="Your email...">
+          <input
+            type="email"
+            id="email"
+            placeholder="email@adress.com"
+            required
+          />
+        </div>
 
+        <div class="form-group">
           <label for="subject">Subject</label>
-          <textarea name="subject" id="subject" placeholder="Your mesage here..."></textarea>
+          <textarea id="subject" placeholder="Your mesage here..."></textarea>
+        </div>
 
-          <input type="submit" value="Submit">
-        </form>
-      </div>
+        <div class="form-group">
+          <input type="submit" value="Send Message" />
+        </div>
+      </form>
     </section>
 
     <footer class="page-footer">
