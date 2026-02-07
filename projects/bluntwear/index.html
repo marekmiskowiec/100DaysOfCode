@@ -22,6 +22,16 @@
       .navbar-brand {
         text-transform: uppercase;
       }
+
+      .carousel-inner,
+      .carousel-item {
+        height: 100vh;
+      }
+
+      .carousel-item img {
+        height: 100%;
+        object-fit: cover;
+      }
     </style>
   </head>
   <body>
@@ -70,6 +80,53 @@
         </div>
       </div>
     </nav>
+
+    <div id="main-slider" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="w-100" src="/images/1.jpeg" alt="image" />
+          <div class="carousel-caption">
+            <h4>NEW ARRIVAL</h4>
+            <h3>Nulla maximus</h3>
+            <a href="#" class="btn btn-primary">Shop now</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="/images/2.jpeg" alt="image" />
+          <div class="carousel-caption">
+            <h4>NEW ARRIVAL</h4>
+            <h3>Nulla maximus</h3>
+            <a href="#" class="btn btn-primary">Shop now</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="/images/3.jpeg" alt="image" />
+          <div class="carousel-caption">
+            <h4>NEW ARRIVAL</h4>
+            <h3>Nulla maximus</h3>
+            <a href="#" class="btn btn-primary">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#main-slider"
+        role="button"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#main-slider"
+        role="button"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
