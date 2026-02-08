@@ -9,12 +9,21 @@
     <div class="container">
       <h1>Rock, paper, scissors</h1>
       <div id="messages"></div>
+      <div id="buttons">
+        <button data-move="rock">Rock</button>
+        <button data-move="paper">Paper</button>
+        <button data-move="scissors">Scissors</button>
+      </div>
     </div>
     <script>
       function printMessage(msg) {
         let div = document.createElement("div");
         div.innerHTML = msg;
         document.getElementById("messages").appendChild(div);
+      }
+
+      function clearMessages() {
+        document.getElementById("messages").innerHTML = "";
       }
 
       function getComputerMove() {
@@ -24,6 +33,17 @@
 
       const computerMove = getComputerMove();
       printMessage(`Computer move: ${computerMove}`);
+
+      function playGame(playerMove) {
+        console.log(playerMove);
+      }
+
+      document.querySelectorAll("button[data-move]").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const playerMove = e.currentTarget.dataset.move;
+          playGame(playerMove);
+        });
+      });
     </script>
   </body>
 </html>
