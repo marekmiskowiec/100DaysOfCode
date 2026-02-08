@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Rock, paper, scissors</h1>
+      <div id="messages"></div>
+    </div>
+    <script>
+      function printMessage(msg) {
+        let div = document.createElement("div");
+        div.innerHTML = msg;
+        document.getElementById("messages").appendChild(div);
+      }
+
+      function getComputerMove() {
+        const moves = ["rock", "paper", "scissors"];
+        return moves[Math.floor(Math.random() * moves.length)];
+      }
+
+      const computerMove = getComputerMove();
+      printMessage(`Computer move: ${computerMove}`);
+    </script>
+  </body>
+</html>
