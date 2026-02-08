@@ -8,14 +8,18 @@
   <body>
     <div class="container">
       <h1>Rock, paper, scissors</h1>
-      <div id="messages"></div>
+      <div id="scores"></div>
       <div id="buttons">
         <button data-move="rock">Rock</button>
         <button data-move="paper">Paper</button>
         <button data-move="scissors">Scissors</button>
       </div>
+      <div id="messages"></div>
     </div>
     <script>
+      let playerScore = 0,
+        computerScore = 0;
+
       function printMessage(msg) {
         let div = document.createElement("div");
         div.innerHTML = msg;
@@ -41,10 +45,16 @@
           (playerMove === "paper" && computerMove === "rock") ||
           (playerMove === "scissors" && computerMove === "paper")
         ) {
+          playerScore++;
           return "player";
         }
-
+        computerScore++;
         return "computer";
+      }
+
+      function updateScores() {
+        document.getElementById("scores").textContent =
+          `Player: ${playerScore} | ${computerScore} Computer`;
       }
 
       function playGame(playerMove) {
@@ -53,6 +63,7 @@
         printMessage(
           `Computer move: ${computerMove}, Player move: ${playerMove}`,
         );
+        updateScores();
       }
 
       document.querySelectorAll("button[data-move]").forEach((button) => {
