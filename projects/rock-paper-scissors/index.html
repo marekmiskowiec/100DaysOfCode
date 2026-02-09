@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+
+    <style>
+      #scores {
+        font-size: 2rem;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <h1>Rock, paper, scissors</h1>
-      <div id="scores"></div>
+      <div id="scores">Player: 0 | 0 Computer</div>
       <div id="buttons">
         <button data-move="rock">Rock</button>
         <button data-move="paper">Paper</button>
@@ -37,7 +43,7 @@
 
       function checkWinner(playerMove, computerMove) {
         if (playerMove === computerMove) {
-          return "draw";
+          return "Draw";
         }
 
         if (
@@ -46,10 +52,10 @@
           (playerMove === "scissors" && computerMove === "paper")
         ) {
           playerScore++;
-          return "player";
+          return "Player wins!";
         }
         computerScore++;
-        return "computer";
+        return "Computer wins!";
       }
 
       function updateScores() {
@@ -59,9 +65,9 @@
 
       function playGame(playerMove) {
         const computerMove = getComputerMove();
-        printMessage(checkWinner(playerMove, computerMove));
+        let winner = checkWinner(playerMove, computerMove);
         printMessage(
-          `Computer move: ${computerMove}, Player move: ${playerMove}`,
+          `Computer move: ${computerMove}, Player move: ${playerMove} | ${winner}`,
         );
         updateScores();
       }
