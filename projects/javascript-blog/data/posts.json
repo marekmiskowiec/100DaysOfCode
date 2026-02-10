@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Pierogi ruskie",
+    "tags": ["lunch", "hard", "top"]
+  },
+  {
+    "id": 2,
+    "title": "Pizza neapolitańska",
+    "tags": ["dinner", "easy"]
+  }
+]

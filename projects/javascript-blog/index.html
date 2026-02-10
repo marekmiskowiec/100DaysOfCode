@@ -553,7 +553,18 @@
     <script>
       "use strict";
 
-      function test() {
+      async function loadArticles() {
+        const response = await fetch("./data/posts.json");
+        const articles = await response.json();
+
+        console.log(articles);
+
+        articles.forEach((article) => {
+          console.log(article.title);
+        });
+      }
+
+      function displayArticle() {
         const allTitles = document.querySelectorAll(".titles a");
 
         for (let title of allTitles) {
@@ -589,7 +600,21 @@
         }
       }
 
-      test();
+      function generateTitleLinks() {
+        // clear title links
+        //const getTitleList = (document.querySelector(".titles").innerHTML = "");
+
+        const allTitles = document.querySelectorAll(".posts .post");
+        console.log(allTitles);
+
+        for (let title of allTitles) {
+          console.log(title.id);
+        }
+      }
+
+      displayArticle();
+      generateTitleLinks();
+      loadArticles();
     </script>
   </body>
 </html>
