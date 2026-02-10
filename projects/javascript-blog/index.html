@@ -142,38 +142,7 @@
         <main class="wrapper">
           <aside class="sidebar">
             <h2 class="section-title">All posts</h2>
-            <ul class="list titles">
-              <li>
-                <a href="#article-1" class="active"><span>Article 1</span></a>
-              </li>
-              <li>
-                <a href="#article-2"><span>Article 2</span></a>
-              </li>
-              <li>
-                <a href="#article-3"><span>Article 3</span></a>
-              </li>
-              <li>
-                <a href="#article-4"><span>Article 4</span></a>
-              </li>
-              <li>
-                <a href="#article-5"><span>Article 5</span></a>
-              </li>
-              <li>
-                <a href="#article-6"><span>Article 6</span></a>
-              </li>
-              <li>
-                <a href="#article-7"><span>Article 7</span></a>
-              </li>
-              <li>
-                <a href="#article-8"><span>Article 8</span></a>
-              </li>
-              <li>
-                <a href="#article-9"><span>Article 9</span></a>
-              </li>
-              <li>
-                <a href="#article-10"><span>Article 10</span></a>
-              </li>
-            </ul>
+            <ul class="list titles"></ul>
           </aside>
           <section class="posts">
             <article class="post active" id="article-1">
@@ -555,13 +524,18 @@
 
       async function loadArticles() {
         const response = await fetch("./data/posts.json");
-        const articles = await response.json();
+        const postsData = await response.json();
 
-        console.log(articles);
+        console.log(postsData);
 
-        articles.forEach((article) => {
+        postsData.forEach((article) => {
           console.log(article.title);
+          console.log(article.content);
         });
+
+        generateTitleLinks(postsData);
+        generateArticles(postsData);
+        displayArticle();
       }
 
       function displayArticle() {
@@ -600,20 +574,52 @@
         }
       }
 
-      function generateTitleLinks() {
-        // clear title links
-        //const getTitleList = (document.querySelector(".titles").innerHTML = "");
+      function generateTitleLinks(posts) {
+        const titleList = document.querySelector(".titles");
+        titleList.innerHTML = "";
 
-        const allTitles = document.querySelectorAll(".posts .post");
-        console.log(allTitles);
-
-        for (let title of allTitles) {
-          console.log(title.id);
-        }
+        posts.forEach((post) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <a href="#article-${post.id}">
+              <span>${post.title}</span>
+            </a>
+          `;
+          titleList.appendChild(li);
+        });
       }
 
-      displayArticle();
-      generateTitleLinks();
+      function generateArticles(posts) {
+        const postsContainer = document.querySelector(".posts");
+        postsContainer.innerHTML = "";
+
+        posts.forEach((post) => {
+          const article = document.createElement("article");
+          article.classList.add("post");
+          article.id = `article-${post.id}`;
+
+          article.innerHTML = `
+            <h3 class="post-title">${post.title}</h3>
+            <div class="post-content">
+              ${post.content.map((p) => `<p>${p}</p>`).join("")}
+            </div>
+
+            <div class="post-author">
+              Created by ${[post.author]}
+            </div>
+
+            <div class="post-tags">
+              <p><strong>Tags:</strong></p>
+              <ul class="list list-horizontal">
+                ${post.tags.map((tag) => `<li><a href="#">${tag}</a></li>`).join("")}
+              </ul>
+            </div>
+          `;
+
+          postsContainer.appendChild(article);
+        });
+      }
+
       loadArticles();
     </script>
   </body>

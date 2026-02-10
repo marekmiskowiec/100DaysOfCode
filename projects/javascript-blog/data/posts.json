@@ -1,12 +1,20 @@
 [
   {
     "id": 1,
-    "title": "Pierogi ruskie",
-    "tags": ["lunch", "hard", "top"]
+    "title": "Kebab",
+    "author": "Mark",
+    "tags": ["lunch", "hard", "top"],
+    "content": [
+      "Duis non dolor efficitur erat interdum fringilla a lobortis dolor. Aenean in massa viverra, pretium augue et, imperdiet diam. Proin varius vitae lectus ut suscipit. Etiam metus lacus, molestie at ante eget, gravida tristique metus. Morbi finibus elit mi, ut aliquam libero tempor eu."
+    ]
   },
   {
     "id": 2,
-    "title": "Pizza neapolitańska",
-    "tags": ["dinner", "easy"]
+    "title": "Pizza",
+    "author": "Mark",
+    "tags": ["dinner", "easy"],
+    "content": [
+      "Duis non dolor efficitur erat interdum fringilla a lobortis dolor."
+    ]
   }
 ]
