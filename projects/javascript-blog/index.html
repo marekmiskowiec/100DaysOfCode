@@ -128,6 +128,11 @@
           margin: 0 10px 0 0;
         }
       }
+
+      .post-title {
+        font-size: 2rem;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -544,5 +549,47 @@
         </main>
       </div>
     </div>
+
+    <script>
+      "use strict";
+
+      function test() {
+        const allTitles = document.querySelectorAll(".titles a");
+
+        for (let title of allTitles) {
+          title.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const activeArticles = document.querySelectorAll(".posts .active");
+            for (let activeArticle of activeArticles) {
+              activeArticle.classList.remove("active");
+            }
+
+            const articleID = title.getAttribute("href").replace("#", "");
+            console.log(articleID);
+
+            const article = document.getElementById(articleID);
+            console.log(article);
+
+            const postAuthor = article
+              .querySelector(".post-author")
+              .textContent.replace("by ", "");
+            const postTitle = article.querySelector(".post-title").textContent;
+            const postBody = article.querySelector(".post-content").textContent;
+
+            console.log({
+              id: articleID,
+              title: postTitle,
+              author: postAuthor,
+              body: postBody,
+            });
+
+            article.classList.add("active");
+          });
+        }
+      }
+
+      test();
+    </script>
   </body>
 </html>
