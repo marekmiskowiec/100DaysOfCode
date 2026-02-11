@@ -539,39 +539,20 @@
       }
 
       function displayArticle() {
-        const allTitles = document.querySelectorAll(".titles a");
+        document.addEventListener("click", (e) => {
+          const link = e.target.closest(".titles a");
+          if (!link) return;
 
-        for (let title of allTitles) {
-          title.addEventListener("click", (e) => {
-            e.preventDefault();
+          e.preventDefault();
 
-            const activeArticles = document.querySelectorAll(".posts .active");
-            for (let activeArticle of activeArticles) {
-              activeArticle.classList.remove("active");
-            }
+          document
+            .querySelectorAll(".titles a, .posts .post")
+            .forEach((el) => el.classList.remove("active"));
 
-            const articleID = title.getAttribute("href").replace("#", "");
-            console.log(articleID);
-
-            const article = document.getElementById(articleID);
-            console.log(article);
-
-            const postAuthor = article
-              .querySelector(".post-author")
-              .textContent.replace("by ", "");
-            const postTitle = article.querySelector(".post-title").textContent;
-            const postBody = article.querySelector(".post-content").textContent;
-
-            console.log({
-              id: articleID,
-              title: postTitle,
-              author: postAuthor,
-              body: postBody,
-            });
-
-            article.classList.add("active");
-          });
-        }
+          const articleID = link.getAttribute("href").replace("#", "");
+          link.classList.add("active");
+          document.getElementById(articleID).classList.add("active");
+        });
       }
 
       function generateTitleLinks(posts) {
