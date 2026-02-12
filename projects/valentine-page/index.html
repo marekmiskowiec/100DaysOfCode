@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <title>Will you be my Valentine?</title>
 
     <style>
@@ -12,7 +16,6 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
       }
 
       body {
@@ -22,6 +25,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
       .container {
@@ -30,6 +34,10 @@
         border-radius: 1rem;
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
 
       h1 {
@@ -46,6 +54,15 @@
       #happy-cat,
       #sad-cat {
         display: none;
+        width: 200px;
+        height: auto;
+        margin-bottom: 15px;
+      }
+
+      #askingCat {
+        width: 200px;
+        height: auto;
+        display: block;
       }
 
       button {
@@ -73,12 +90,38 @@
         background-color: #ccc;
         position: relative;
       }
+
+      .homepage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5px;
+      }
+
+      .fa-heart {
+        color: red;
+      }
+
+      @media (max-width: 720px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .container {
+          margin: 10px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1 id="question">Will you be my Valentine?</h1>
-      <img src="images/happy-cat.gif" id="happy-cat" alt="gif" />
+      <a class="homepage" href="/"><i class="fa-solid fa-house"></i></a>
+      <img src="images/asking-cat.gif" id="askingCat" alt="asking-cat" />
+      <h1 id="question">
+        <i class="fa-solid fa-heart"></i>
+        Will you be my Valentine? <i class="fa-solid fa-heart"></i>
+      </h1>
+      <img src="images/kissing-cat.gif" id="happy-cat" alt="gif" />
       <img src="images/sad-cat.gif" id="sad-cat" alt="gif" />
 
       <div class="buttons">
@@ -88,6 +131,22 @@
     </div>
 
     <script>
+      const phrases = [
+        "No",
+        "Are you sure?",
+        "Pretty please",
+        "I am going to die",
+        "Yep im dead",
+        "please babe",
+        ":((((",
+        "PRETTY PLEASE",
+        "Estoy muerto",
+        "No :(",
+      ];
+
+      let phraseIndex = 0;
+      let yesScale = 1;
+
       const yesBtn = document.getElementById("yesBtn");
       const noBtn = document.getElementById("noBtn");
       const question = document.getElementById("question");
@@ -98,6 +157,7 @@
         question.textContent = "YAYYY!!! <3";
         sadCat.style.display = "none";
         happyCat.style.display = "inline";
+        askingCat.style.display = "none";
 
         question.classList.add("success");
         document.querySelector(".buttons").style.display = "none";
@@ -105,8 +165,16 @@
 
       noBtn.addEventListener("click", () => {
         question.textContent = "Sadeg";
+        askingCat.style.display = "none";
         sadCat.style.display = "inline";
-        noBtn.style.display = "none";
+
+        if (phraseIndex < phrases.length - 1) {
+          phraseIndex++;
+          noBtn.textContent = phrases[phraseIndex];
+        }
+
+        yesScale += 0.2;
+        yesBtn.style.transform = `scale(${yesScale})`;
       });
     </script>
   </body>
