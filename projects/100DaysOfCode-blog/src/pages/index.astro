@@ -1,8 +1,8 @@
 ---
-import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
-import { getCollection } from "astro:content";
-const posts = await getCollection("blog");
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -15,17 +15,11 @@ const posts = await getCollection("blog");
     <title>Astro</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
 
     <h1>Astro tutorial blog</h1>
     <p>This is where I will post about my journey learning Astro.</p>
 
-    <ul>
-      <li><a href="/posts/post1">Post 1</a></li>
-      <li><a href="/posts/post2/">Post 2</a></li>
-      <li><a href="/posts/post3/">Post 3</a></li>
-    </ul>
+    <Footer />
   </body>
 </html>
