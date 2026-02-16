@@ -1,20 +1,20 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BasicLayout from "../layouts/BasicLayout.astro";
 
 import "../styles/global.css";
+
+const pageTitle = "Blog - home page";
 ---
 
 <body>
-  <Header />
-
-  <h1>Blog posts</h1>
-  <ul>
-    <li><a href="/posts/post1">Post 1</a></li>
-    <li><a href="/posts/post2/">Post 2</a></li>
-    <li><a href="/posts/post3/">Post 3</a></li>
-  </ul>
-  <Footer />
+  <BasicLayout pageTitle={pageTitle}>
+    <h1>Blog posts</h1>
+    <ul>
+      <li><a href="/posts/post1">Post 1</a></li>
+      <li><a href="/posts/post2/">Post 2</a></li>
+      <li><a href="/posts/post3/">Post 3</a></li>
+    </ul>
+  </BasicLayout>
   <script>
     import "../scripts/menu.js";
   </script>
