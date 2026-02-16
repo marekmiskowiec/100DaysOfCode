@@ -1,0 +1,17 @@
+---
+const tags = {
+  HTML: 2,
+  CSS: 3,
+  JavaScript: 4,
+};
+---
+
+<ul>
+  {
+    Object.entries(tags).map(([name, count]) => (
+      <li>
+        {name} ({count})
+      </li>
+    ))
+  }
+</ul>
