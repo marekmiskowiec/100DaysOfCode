@@ -1,7 +1,25 @@
 ---
-const { url, title } = Astro.props;
+const { url, title, pubDate, tags } = Astro.props;
 ---
 
-<li>
-  <a href={url}>{title}</a>
+<li style="list-style-type: none;">
+  <a href={url} style="text-decoration: none;">{title}</a>
+  <p>
+    {
+      new Date(pubDate).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    }
+  </p>
+  <p>
+    {
+      tags.map((tag: string) => (
+        <button>
+          <a href="#">{tag} </a>
+        </button>
+      ))
+    }
+  </p>
 </li>
