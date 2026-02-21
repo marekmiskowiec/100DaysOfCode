@@ -1,9 +1,10 @@
 ---
-const { url, title, pubDate, tags } = Astro.props;
+const { url, title, description, pubDate, tags } = Astro.props;
 ---
 
 <li style="list-style-type: none;">
   <a href={url} style="text-decoration: none;">{title}</a>
+  <p>{description}</p>
   <p>
     {
       new Date(pubDate).toLocaleDateString("en-GB", {
@@ -13,6 +14,7 @@ const { url, title, pubDate, tags } = Astro.props;
       })
     }
   </p>
+
   <p>
     {
       tags.map((tag: string) => (
@@ -22,4 +24,5 @@ const { url, title, pubDate, tags } = Astro.props;
       ))
     }
   </p>
+  <a href={url} style="text-decoration: none; color: lightblue">Read more...</a>
 </li>
